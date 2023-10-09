@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Air Quality Dashboard</title>
+    
+    <!-- ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+    <!-- css styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Air Quality Dashboard</h1>
+
+    <!-- Button for get weather & pollution data with lat & lang -->
+    <div>
+        <h2>Mendapatkan Data Berdasarkan Lokasi Saat Ini</h2>
+        <button id="getCurrentLocationData">Dapatkan Data Lokasi Saat Ini</button>
+        <div id="resultContainer"></div>
+    </div>
+
+    <!-- Card for location -->
+    <div class="location-card" id="locationCard">
+        <div class="card-header">
+            <i class="fas fa-map-marker-alt card-icon"></i> Informasi Lokasi
+        </div>
+        <div class="card-body">
+            <p>Kota: <span id="city"></span></p>
+            <p>Negara: <span id="country"></span></p>
+            <p>Negara Bagian: <span id="state"></span></p>
+        </div>
+    </div>
+
+    <!-- Card for poluttion -->
+    <div class="card" id="pollutionCard">
+        <div class="card-header">
+            <i class="fas fa-smog card-icon"></i> Data Polusi Udara
+        </div>
+        <div class="card-body">
+            <p>Indeks AQI (US): <span id="aqiValue"></span></p>
+            <p>Parameter Utama (US): <span id="mainParameter"></span></p>
+        </div>
+    </div>
+
+    <!-- Card for weather -->
+    <div class="card" id="weatherCard">
+        <div class="card-header">
+            <i class="fas fa-cloud-sun card-icon"></i> Data Cuaca
+        </div>
+        <div class="card-body">
+            <p>Suhu (°C): <span id="temperature"></span></p>
+            <p>Kelembaban (%): <span id="humidity"></span></p>
+            <p>Arah Angin (°): <span id="windDirection"></span></p>
+            <p>Kecepatan Angin (m/s): <span id="windSpeed"></span></p>
+        </div>
+    </div>
+
+    <!-- Import func getDataAndDisplay -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
